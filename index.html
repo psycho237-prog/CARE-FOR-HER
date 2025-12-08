@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care For Her</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .page {
+            display: none;
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(252, 182, 159, 0.4);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .logo-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 30px rgba(255, 154, 158, 0.3);
+        }
+
+        .app-name {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            color: #4a4a4a;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #ff9a9e;
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .terms-content {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe8f0 100%);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666;
+            border: 2px solid #ffe0e9;
+        }
+
+        .terms-content h3 {
+            color: #ff9a9e;
+            font-size: 16px;
+            margin: 15px 0 10px;
+            font-weight: 600;
+        }
+
+        .terms-content p {
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #ffe0e9;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: #fff;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #ff9a9e;
+            box-shadow: 0 0 0 3px rgba(255, 154, 158, 0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe8f0 100%);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid #ffe0e9;
+        }
+
+        .checkbox-group:hover {
+            background: #ffe8f0;
+            border-color: #ffc8d9;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #ff9a9e;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 154, 158, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 154, 158, 0.4);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: #ff9a9e;
+            border: 2px solid #ffe0e9;
+        }
+
+        .btn-secondary:hover {
+            background: #fff5f7;
+            border-color: #ffc8d9;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe8f0 100%);
+            border-left: 4px solid #ff9a9e;
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+            border: 2px solid #ffe0e9;
+            border-left-width: 4px;
+        }
+
+        .main-menu {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .menu-card {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 30px 15px;
+            border-radius: 18px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(255, 154, 158, 0.2);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 154, 158, 0.4);
+        }
+
+        .menu-card-icon {
+            font-size: 45px;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .menu-card-title {
+            font-weight: 600;
+            font-size: 14px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .welcome-text {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .decorative-hearts {
+            text-align: center;
+            font-size: 20px;
+            margin: 15px 0;
+            opacity: 0.6;
+        }
+
+        .emergency-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .emergency-btn:hover {
+            background: linear-gradient(135deg, #ff5252 0%, #ff6b6b 100%);
+            box-shadow: 0 12px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        .social-networks {
+            margin-top: 20px;
+        }
+
+        .social-card {
+            display: flex;
+            align-items: center;
+            padding: 18px;
+            background: white;
+            border: 2px solid #ffe0e9;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .social-card:hover {
+            border-color: #ff9a9e;
+            box-shadow: 0 8px 20px rgba(255, 154, 158, 0.2);
+            transform: translateX(5px);
+        }
+
+        .social-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-info {
+            flex: 1;
+        }
+
+        .social-name {
+            font-weight: 600;
+            font-size: 16px;
+            color: #4a4a4a;
+            margin-bottom: 3px;
+        }
+
+        .social-status {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .social-status.connected {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+
+        .btn-connect {
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-connect:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(255, 154, 158, 0.3);
+        }
+
+        .btn-connect.connected {
+            background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1: Termes de confidentialité -->
+    <div class="page active" id="page-terms">
+        <div class="logo">
+            <div class="logo-icon">💖</div>
+            <div class="app-name">Care For Her</div>
+            <h1>Bienvenue</h1>
+        </div>
+
+        <h2>Confidentialité et Sécurité</h2>
+
+        <div class="terms-content">
+            <h3>💝 Protection de vos données</h3>
+            <p>Vos informations sont cryptées et sécurisées. Nous ne partageons jamais vos données personnelles sans votre consentement explicite.</p>
+
+            <h3>🎭 Anonymat</h3>
+            <p>Vous avez le droit de rester totalement anonyme. Aucune information personnelle n'est obligatoire pour utiliser cette application.</p>
+
+            <h3>🔒 Signalements confidentiels</h3>
+            <p>Tous les signalements sont traités de manière confidentielle. Vous contrôlez qui peut voir vos informations.</p>
+
+            <h3>🛡️ Stockage sécurisé</h3>
+            <p>Toutes les données sont stockées de manière sécurisée avec un cryptage de bout en bout. Vous pouvez supprimer vos données à tout moment.</p>
+
+            <h3>💗 Support et ressources</h3>
+            <p>Nous vous connectons à des ressources d'aide professionnelles et à des services d'assistance disponibles 24/7.</p>
+
+            <h3>✨ Vos droits</h3>
+            <p>Vous avez le droit d'accéder, modifier ou supprimer vos données à tout moment. Vous pouvez également retirer votre consentement quand vous le souhaitez.</p>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="accept-terms">
+            <label for="accept-terms">J'ai lu et j'accepte les conditions de confidentialité</label>
+        </div>
+
+        <button class="btn btn-primary" onclick="nextPage('page-profile')">Continuer</button>
+    </div>
+
+    <!-- Page 2: Profil utilisateur -->
+    <div class="page" id="page-profile">
+        <div class="logo">
+            <div class="logo-icon">🌸</div>
+            <div class="app-name">Care For Her</div>
+            <h1>Votre Profil</h1>
+        </div>
+
+        <div class="info-box">
+            💝 Ces informations nous aident à mieux vous protéger. Vous pouvez rester totalement anonyme si vous préférez.
+        </div>
+
+        <form id="profile-form">
+            <div class="form-group">
+                <label for="age">🎂 Âge (optionnel)</label>
+                <input type="number" id="age" placeholder="Entrez votre âge (12 ans et plus)" min="12">
+            </div>
+
+            <div class="form-group">
+                <label for="genre">✨ Genre (optionnel)</label>
+                <select id="genre">
+                    <option value="">Sélectionnez votre genre</option>
+                    <option value="femme">Femme</option>
+                    <option value="homme">Homme</option>
+                    <option value="non-binaire">Non-binaire</option>
+                    <option value="autre">Autre</option>
+                    <option value="prefere-ne-pas-dire">Préfère ne pas dire</option>
+                </select>
+            </div>
+
+            <div class="checkbox-group" style="margin-top: 25px; margin-bottom: 15px;">
+                <input type="checkbox" id="anonymous">
+                <label for="anonymous">🎭 Je souhaite rester anonyme</label>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="nextPage('page-main')">Accéder à l'application</button>
+            <button type="button" class="btn btn-secondary" onclick="skipProfile()">Passer cette étape</button>
+        </form>
+    </div>
+
+    <!-- Page 4: Surveillance réseaux sociaux -->
+    <div class="page" id="page-social">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <div class="app-name">Care For Her</div>
+            <h1>Mes Réseaux Sociaux</h1>
+        </div>
+
+        <div class="info-box">
+            🔒 Connectez vos réseaux sociaux pour une surveillance automatique. Vos identifiants ne sont jamais partagés.
+        </div>
+
+        <div class="social-networks">
+            <div class="social-card" onclick="connectSocial('WhatsApp')">
+                <div class="social-icon" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);">
+                    <span style="font-size: 35px;">💬</span>
+                </div>
+                <div class="social-info">
+                    <div class="social-name">WhatsApp</div>
+                    <div class="social-status" id="status-whatsapp">Non connecté</div>
+                </div>
+                <div class="social-toggle">
+                    <button class="btn-connect">Connecter</button>
+                </div>
+            </div>
+
+            <div class="social-card" onclick="connectSocial('Facebook')">
+                <div class="social-icon" style="background: linear-gradient(135deg, #1877F2 0%, #0C63D4 100%);">
+                    <span style="font-size: 35px;">📘</span>
+                </div>
+                <div class="social-info">
+                    <div class="social-name">Facebook</div>
+                    <div class="social-status" id="status-facebook">Non connecté</div>
+                </div>
+                <div class="social-toggle">
+                    <button class="btn-connect">Connecter</button>
+                </div>
+            </div>
+
+            <div class="social-card" onclick="connectSocial('Instagram')">
+                <div class="social-icon" style="background: linear-gradient(135deg, #E4405F 0%, #C13584 100%);">
+                    <span style="font-size: 35px;">📸</span>
+                </div>
+                <div class="social-info">
+                    <div class="social-name">Instagram</div>
+                    <div class="social-status" id="status-instagram">Non connecté</div>
+                </div>
+                <div class="social-toggle">
+                    <button class="btn-connect">Connecter</button>
+                </div>
+            </div>
+
+            <div class="social-card" onclick="connectSocial('TikTok')">
+                <div class="social-icon" style="background: linear-gradient(135deg, #000000 0%, #EE1D52 100%);">
+                    <span style="font-size: 35px;">🎵</span>
+                </div>
+                <div class="social-info">
+                    <div class="social-name">TikTok</div>
+                    <div class="social-status" id="status-tiktok">Non connecté</div>
+                </div>
+                <div class="social-toggle">
+                    <button class="btn-connect">Connecter</button>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" style="margin-top: 20px;" onclick="nextPage('page-main')">
+            Retour à l'accueil
+        </button>
+    </div>
+
+    <!-- Page 3: Page principale -->
+    <div class="page" id="page-main">
+        <div class="logo">
+            <div class="logo-icon">💖</div>
+            <div class="app-name">Care For Her</div>
+        </div>
+
+        <p class="welcome-text">
+            Vous êtes en sécurité ici. Nous sommes là pour vous accompagner et vous protéger. Choisissez une action ci-dessous.
+        </p>
+
+        <div class="decorative-hearts">💕 ✨ 💕</div>
+
+        <div class="main-menu">
+            <div class="menu-card" onclick="alert('Fonction de signalement - À développer')">
+                <div class="menu-card-icon">📢</div>
+                <div class="menu-card-title">Signaler un incident</div>
+            </div>
+
+            <div class="menu-card" onclick="showSocialMedia()">
+                <div class="menu-card-icon">📱</div>
+                <div class="menu-card-title">Surveiller mes réseaux</div>
+            </div>
+
+            <div class="menu-card" onclick="alert('Ressources d\'aide - À développer')">
+                <div class="menu-card-icon">💗</div>
+                <div class="menu-card-title">Ressources d'aide</div>
+            </div>
+
+            <div class="menu-card" onclick="alert('Centre d\'apprentissage - À développer')">
+                <div class="menu-card-icon">📚</div>
+                <div class="menu-card-title">En savoir plus</div>
+            </div>
+
+            <div class="menu-card" onclick="alert('Communauté - À développer')">
+                <div class="menu-card-icon">🤝</div>
+                <div class="menu-card-title">Communauté</div>
+            </div>
+
+            <div class="menu-card" onclick="alert('Paramètres - À développer')">
+                <div class="menu-card-icon">⚙️</div>
+                <div class="menu-card-title">Paramètres</div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary emergency-btn" style="margin-top: 20px;" onclick="alert('Bouton d\'urgence activé!')">
+            🚨 Aide d'urgence
+        </button>
+    </div>
+
+    <script>
+        function nextPage(pageId) {
+            const currentPage = document.querySelector('.page.active');
+            const nextPageEl = document.getElementById(pageId);
+
+            // Validation pour la page des termes
+            if (currentPage.id === 'page-terms') {
+                const checkbox = document.getElementById('accept-terms');
+                if (!checkbox.checked) {
+                    alert('Veuillez accepter les conditions de confidentialité pour continuer.');
+                    return;
+                }
+            }
+
+            currentPage.classList.remove('active');
+            nextPageEl.classList.add('active');
+        }
+
+        function skipProfile() {
+            nextPage('page-main');
+        }
+
+        function showSocialMedia() {
+            nextPage('page-social');
+        }
+
+        function connectSocial(network) {
+            const statusId = 'status-' + network.toLowerCase();
+            const statusEl = document.getElementById(statusId);
+            const card = event.currentTarget;
+            const button = card.querySelector('.btn-connect');
+
+            if (statusEl.textContent === 'Non connecté') {
+                // Simulation de connexion
+                setTimeout(() => {
+                    statusEl.textContent = 'Connecté ✓';
+                    statusEl.classList.add('connected');
+                    button.textContent = 'Déconnecter';
+                    button.classList.add('connected');
+                    alert(`${network} connecté avec succès! La surveillance est maintenant active.`);
+                }, 500);
+            } else {
+                // Déconnexion
+                statusEl.textContent = 'Non connecté';
+                statusEl.classList.remove('connected');
+                button.textContent = 'Connecter';
+                button.classList.remove('connected');
+                alert(`${network} déconnecté.`);
+            }
+        }
+
+        // Gestion du mode anonyme
+        document.getElementById('anonymous').addEventListener('change', function() {
+            const ageInput = document.getElementById('age');
+            const genreSelect = document.getElementById('genre');
+            
+            if (this.checked) {
+                ageInput.disabled = true;
+                genreSelect.disabled = true;
+                ageInput.value = '';
+                genreSelect.value = '';
+            } else {
+                ageInput.disabled = false;
+                genreSelect.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
