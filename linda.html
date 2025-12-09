@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care For Her - Assistant LINDA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+        🌓
+    </button>
+
+    <div class="page active chat-page" id="page-linda">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="assets/logo-light.png" alt="Logo" class="logo-img">
+            </div>
+            <div class="app-name">Care For Her</div>
+            <h1>Assistant LINDA</h1>
+        </div>
+
+        <div class="chat-container-full">
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot">
+                    Bonjour ! Je suis LINDA, votre assistante virtuelle. Je suis là pour vous écouter et vous orienter.
+                    Comment puis-je vous aider aujourd'hui ?
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Écrivez votre message..."
+                    onkeypress="handleChatInput(event)">
+                <button onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" style="margin-top: 20px;" onclick="navigateToMain()">
+            Retour à l'accueil
+        </button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

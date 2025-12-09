@@ -718,3 +718,42 @@ select:focus {
 .chat-input-area button:hover {
     transform: scale(1.1);
 }
+
+/* For now, I'll keep them but add new ones for full page */
+
+.chat-container-full {
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    /* Adjust as needed */
+    background: var(--bg-gradient);
+    border-radius: 15px;
+    border: 2px solid var(--border-color);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.chat-container-full .chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-container-full .chat-input-area {
+    padding: 10px;
+    background: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 10px;
+}
+
+/* Reuse message styles */
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+}
