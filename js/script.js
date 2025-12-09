@@ -1,10 +1,10 @@
 // Theme Management
 function toggleTheme() {
-    const body = document.body;
-    const currentTheme = body.getAttribute('data-theme');
+    const root = document.documentElement;
+    const currentTheme = root.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-    body.setAttribute('data-theme', newTheme);
+    root.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateLogos(newTheme);
 }
@@ -18,7 +18,7 @@ function updateLogos(theme) {
 // Initialize Theme
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'light';
-    document.body.setAttribute('data-theme', savedTheme);
+    document.documentElement.setAttribute('data-theme', savedTheme);
     updateLogos(savedTheme);
 
     // Initialize Anonymous Listener if element exists
