@@ -39,6 +39,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Custom Accordion Logic
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const isActive = header.classList.contains('active');
+
+            // Close all other items
+            accordionHeaders.forEach(h => {
+                h.classList.remove('active');
+                h.nextElementSibling.style.maxHeight = null;
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                header.classList.add('active');
+                const body = header.nextElementSibling;
+                body.style.maxHeight = body.scrollHeight + "px";
+            }
+        });
+    });
 });
 
 // Navigation Functions
