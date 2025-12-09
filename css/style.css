@@ -2,33 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-:root {
-    /* Light Theme Colors */
-    --primary-gradient: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
-    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    --card-bg: white;
-    --text-main: #4a4a4a;
-    --text-secondary: #666;
-    --accent-color: #8e44ad;
-    --border-color: #d6eaf8;
-    --shadow-color: rgba(52, 152, 219, 0.3);
-    --input-bg: #fff;
-    --success-color: #4CAF50;
-}
-
-[data-theme="dark"] {
-    /* Dark Theme Colors */
-    --primary-gradient: linear-gradient(135deg, #9b59b6 0%, #2980b9 100%);
-    --bg-gradient: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
-    --card-bg: #1a1a1a;
-    --text-main: #ecf0f1;
-    --text-secondary: #bdc3c7;
-    --accent-color: #a569bd;
-    --border-color: #34495e;
-    --shadow-color: rgba(0, 0, 0, 0.5);
-    --input-bg: #2c3e50;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -37,8 +11,10 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
+    align-items: flex-start;
+    /* Allow scrolling on mobile */
+    padding: 20px 10px;
+    /* Reduced side padding */
     color: var(--text-main);
     transition: background 0.3s ease;
 }
@@ -301,20 +277,28 @@ select:focus {
 
 .main-menu {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    /* Force 2 columns on mobile */
     gap: 15px;
     margin-top: 20px;
 }
 
 .menu-card {
     background: var(--primary-gradient);
-    padding: 30px 15px;
+    padding: 20px 10px;
+    /* Compact padding */
     border-radius: 18px;
     text-align: center;
     color: white;
     cursor: pointer;
     transition: all 0.3s;
     box-shadow: 0 8px 20px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 110px;
+    /* Minimum touch target height */
 }
 
 .menu-card:hover {
@@ -464,7 +448,8 @@ select:focus {
 .container-alerts {
     max-width: 800px;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
+    /* Reduced padding for mobile */
 }
 
 .page-title {
