@@ -5,6 +5,33 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+:root {
+    /* Light Theme Colors */
+    --primary-gradient: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --card-bg: white;
+    --text-main: #4a4a4a;
+    --text-secondary: #666;
+    --accent-color: #8e44ad;
+    --border-color: #d6eaf8;
+    --shadow-color: rgba(52, 152, 219, 0.3);
+    --input-bg: #fff;
+    --success-color: #4CAF50;
+}
+
+[data-theme="dark"] {
+    /* Dark Theme Colors */
+    --primary-gradient: linear-gradient(135deg, #9b59b6 0%, #2980b9 100%);
+    --bg-gradient: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+    --card-bg: #1a1a1a;
+    --text-main: #ecf0f1;
+    --text-secondary: #bdc3c7;
+    --accent-color: #a569bd;
+    --border-color: #34495e;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --input-bg: #2c3e50;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background: var(--bg-gradient);
