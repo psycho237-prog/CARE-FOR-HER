@@ -92,6 +92,10 @@ function navigateToStatistics() {
     window.location.href = 'statistics.html';
 }
 
+function navigateToCommunity() {
+    window.location.href = 'community.html';
+}
+
 function connectSocial(network) {
     const statusId = 'status-' + network.toLowerCase();
     const statusEl = document.getElementById(statusId);
