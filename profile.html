@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care For Her - Profil</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+        🌓
+    </button>
+
+    <div class="page active" id="page-profile">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="assets/logo-light.png" alt="Logo" class="logo-img">
+            </div>
+            <div class="app-name">Care For Her</div>
+            <h1>Votre Profil</h1>
+        </div>
+
+        <div class="info-box">
+            💝 Ces informations nous aident à mieux vous protéger. Vous pouvez rester totalement anonyme si vous
+            préférez.
+        </div>
+
+        <form id="profile-form">
+            <div class="form-group">
+                <label for="age">🎂 Âge (optionnel)</label>
+                <input type="number" id="age" placeholder="Entrez votre âge (12 ans et plus)" min="12">
+            </div>
+
+            <div class="form-group">
+                <label for="genre">✨ Genre (optionnel)</label>
+                <select id="genre">
+                    <option value="">Sélectionnez votre genre</option>
+                    <option value="femme">Femme</option>
+                    <option value="homme">Homme</option>
+                    <option value="non-binaire">Non-binaire</option>
+                    <option value="autre">Autre</option>
+                    <option value="prefere-ne-pas-dire">Préfère ne pas dire</option>
+                </select>
+            </div>
+
+            <div class="checkbox-group" style="margin-top: 25px; margin-bottom: 15px;">
+                <input type="checkbox" id="anonymous">
+                <label for="anonymous">🎭 Je souhaite rester anonyme</label>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="navigateToMain()">Accéder à l'application</button>
+            <button type="button" class="btn btn-secondary" onclick="skipProfile()">Passer cette étape</button>
+        </form>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

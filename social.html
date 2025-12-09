@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care For Her - Réseaux Sociaux</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+        🌓
+    </button>
+
+    <div class="page active" id="page-social">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="assets/logo-light.png" alt="Logo" class="logo-img">
+            </div>
+            <div class="app-name">Care For Her</div>
+            <h1>Mes Réseaux Sociaux</h1>
+        </div>
+
+        <div class="info-box">
+            🔒 Connectez vos réseaux sociaux pour une surveillance automatique. Vos identifiants ne sont jamais
+            partagés.
+        </div>
+
+        <div class="social-networks">
+            <div class="social-card" onclick="connectSocial('WhatsApp')">
+                <div class="social-icon" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);">
+                    <span style="font-size: 35px;">💬</span>
+                </div>
+                <div class="social-info">
+                    <div class="social-name">WhatsApp</div>
+                    <div class="social-status" id="status-whatsapp">Non connecté</div>
+                </div>
+                <div class="social-toggle">
+                    <button class="btn-connect">Connecter</button>
+                </div>
+            </div>
+
+            <div class="social-card" onclick="connectSocial('Facebook')">
+                <div class="social-icon" style="background: linear-gradient(135deg, #1877F2 0%, #0C63D4 100%);">
+                    <span style="font-size: 35px;">📘</span>
+                </div>
+                <div class="social-info">
+                    <div class="social-name">Facebook</div>
+                    <div class="social-status" id="status-facebook">Non connecté</div>
+                </div>
+                <div class="social-toggle">
+                    <button class="btn-connect">Connecter</button>
+                </div>
+            </div>
+
+            <div class="social-card" onclick="connectSocial('Instagram')">
+                <div class="social-icon" style="background: linear-gradient(135deg, #E4405F 0%, #C13584 100%);">
+                    <span style="font-size: 35px;">📸</span>
+                </div>
+                <div class="social-info">
+                    <div class="social-name">Instagram</div>
+                    <div class="social-status" id="status-instagram">Non connecté</div>
+                </div>
+                <div class="social-toggle">
+                    <button class="btn-connect">Connecter</button>
+                </div>
+            </div>
+
+            <div class="social-card" onclick="connectSocial('TikTok')">
+                <div class="social-icon" style="background: linear-gradient(135deg, #000000 0%, #EE1D52 100%);">
+                    <span style="font-size: 35px;">🎵</span>
+                </div>
+                <div class="social-info">
+                    <div class="social-name">TikTok</div>
+                    <div class="social-status" id="status-tiktok">Non connecté</div>
+                </div>
+                <div class="social-toggle">
+                    <button class="btn-connect">Connecter</button>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" style="margin-top: 20px;" onclick="navigateToMain()">
+            Retour à l'accueil
+        </button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

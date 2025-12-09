@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care For Her - Accueil</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+        🌓
+    </button>
+
+    <div class="page active" id="page-main">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="assets/logo-light.png" alt="Logo" class="logo-img">
+            </div>
+            <div class="app-name">Care For Her</div>
+        </div>
+
+        <p class="welcome-text">
+            Vous êtes en sécurité ici. Nous sommes là pour vous accompagner et vous protéger. Choisissez une action
+            ci-dessous.
+        </p>
+
+        <div class="decorative-hearts">💕 ✨ 💕</div>
+
+        <div class="main-menu">
+            <div class="menu-card" onclick="alert('Fonction de signalement - À développer')">
+                <div class="menu-card-icon">📢</div>
+                <div class="menu-card-title">Signaler un incident</div>
+            </div>
+
+            <div class="menu-card" onclick="navigateToSocial()">
+                <div class="menu-card-icon">📱</div>
+                <div class="menu-card-title">Surveiller mes réseaux</div>
+            </div>
+
+            <div class="menu-card" onclick="alert('Ressources d\'aide - À développer')">
+                <div class="menu-card-icon">💗</div>
+                <div class="menu-card-title">Ressources d'aide</div>
+            </div>
+
+            <div class="menu-card" onclick="alert('Centre d\'apprentissage - À développer')">
+                <div class="menu-card-icon">📚</div>
+                <div class="menu-card-title">En savoir plus</div>
+            </div>
+
+            <div class="menu-card" onclick="alert('Communauté - À développer')">
+                <div class="menu-card-icon">🤝</div>
+                <div class="menu-card-title">Communauté</div>
+            </div>
+
+            <div class="menu-card" onclick="alert('Paramètres - À développer')">
+                <div class="menu-card-icon">⚙️</div>
+                <div class="menu-card-title">Paramètres</div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary emergency-btn" style="margin-top: 20px;"
+            onclick="alert('Bouton d\'urgence activé!')">
+            🚨 Aide d'urgence
+        </button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
