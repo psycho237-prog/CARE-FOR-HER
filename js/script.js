@@ -96,6 +96,10 @@ function navigateToCommunity() {
     window.location.href = 'community.html';
 }
 
+function navigateToLinda() {
+    window.location.href = 'linda.html';
+}
+
 function connectSocial(network) {
     const statusId = 'status-' + network.toLowerCase();
     const statusEl = document.getElementById(statusId);
