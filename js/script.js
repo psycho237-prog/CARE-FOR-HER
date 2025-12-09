@@ -88,6 +88,10 @@ function navigateToAlerts() {
     window.location.href = 'alerts.html';
 }
 
+function navigateToStatistics() {
+    window.location.href = 'statistics.html';
+}
+
 function connectSocial(network) {
     const statusId = 'status-' + network.toLowerCase();
     const statusEl = document.getElementById(statusId);

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care For Her - Statistiques</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+        🌓
+    </button>
+
+    <div class="page active" id="page-statistics">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="assets/logo-light.png" alt="Logo" class="logo-img">
+            </div>
+            <div class="app-name">Care For Her</div>
+            <h1>Statistiques Utilisateurs</h1>
+        </div>
+
+        <div class="container-alerts">
+            <h2 class="page-title">Utilisateurs & Messages</h2>
+
+            <!-- User 1 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>👤 Psycho237 (06 12 34 56 78)</span>
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="accordion-content">
+                        <p><strong>Dernier message :</strong> "J'ai bien reçu l'alerte, merci."</p>
+                        <p><small>Il y a 2 heures</small></p>
+                        <hr style="margin: 10px 0; border-color: var(--border-color);">
+                        <p><strong>Message précédent :</strong> "Est-ce que le service est actif ce soir ?"</p>
+                        <p><small>Hier à 18:30</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User 2 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>👤 Sarah_L (07 98 76 54 32)</span>
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="accordion-content">
+                        <p><strong>Dernier message :</strong> "Alerte test confirmée."</p>
+                        <p><small>Il y a 5 heures</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User 3 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span>👤 Marie.Curie (06 55 44 33 22)</span>
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="accordion-content">
+                        <p><strong>Dernier message :</strong> "Merci pour les conseils de sécurité."</p>
+                        <p><small>Aujourd'hui à 09:15</small></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="btn btn-primary" style="margin-top: 20px;" onclick="navigateToMain()">
+            Retour à l'accueil
+        </button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
